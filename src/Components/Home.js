@@ -50,6 +50,8 @@ export default function Home() {
                     return val;
                   } else if (val.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
                     return val;
+                  }else {
+                    return false;
                   }
                 })
 
