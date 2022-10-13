@@ -4,7 +4,7 @@ import ScrollToTop from "react-scroll-to-top";
 
 export default function Home() {
   let [quran, setQuran] = useState([]);
-  let [loading, setLoading] = useState(false);
+  let [loading, setLoading] = useState(true);
   let [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -13,8 +13,9 @@ export default function Home() {
         `https://raw.githubusercontent.com/penggguna/QuranJSON/master/quran.json`
       );
       let response = await request.json();
-      setQuran(response);
-      setLoading(false);
+      
+      setLoading(false)
+      setQuran(response)
     }
 
     getQuran();

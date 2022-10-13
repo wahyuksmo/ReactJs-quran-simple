@@ -6,7 +6,7 @@ export default function QuranDetail() {
 
   let [quran, setQuran] = useState({});
   let [ayat, setAyat] = useState([]);
-  let [loading, setLoading] = useState(false);
+  let [loading, setLoading] = useState(true);
   let [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
@@ -20,9 +20,9 @@ export default function QuranDetail() {
       }
       let response = await request.json();
 
+      setLoading(false);
       setAyat(response.verses);
       setQuran(response);
-      setLoading(false);
     }
 
     getQuran();
@@ -37,7 +37,7 @@ export default function QuranDetail() {
       <div className="container">
         <div className="row">
           {loading && (
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center mt-5">
               <div class="spinner-border" role="status">
                 <span class="visually-hidden">Loading...</span>
               </div>
